@@ -4,6 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>فرحوم كادي</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#020b2e">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="apple-touch-icon" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;900&family=Amiri:wght@400;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
@@ -192,6 +198,7 @@ function dl(e){
   courses[k]={name:(e.tags&&e.tags.name)||'ملعب '+e.id,holes:hs};active=k;S('fc_courses',courses);S('fc_active',active);
   $('cMsg').textContent='تم التحميل: '+hs.length+' حفرة';drawCourses();applyHole()}).catch(()=>{$('cMsg').textContent='تعذّر التحميل'})}
 drawBag();drawCard();calc();drawCourses();
+if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
 {const v=$('bgv');const pl=()=>{v.muted=true;const p=v.play();if(p&&p.catch)p.catch(()=>{})};pl();document.addEventListener('touchstart',pl,{once:true});document.addEventListener('click',pl,{once:true})}
 </script>
 </body>
